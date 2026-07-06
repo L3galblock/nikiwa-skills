@@ -1,10 +1,10 @@
 # Nikiwa Skills & Plugin
 
-Official agent integrations for [Nikiwa](https://nikiwa.com) — blockchain forensics and investigation. Connects your AI agent to the Nikiwa MCP server: 50 tools for wallet risk scoring, address profiling, counterparty mapping, token and contract risk, DeFi market data, Hyperliquid activity, and Polymarket positions.
+Official agent integrations for [Nikiwa](https://nikiwa.com), the blockchain forensics and investigation platform. Connects your AI agent to the Nikiwa MCP server: 50 tools for wallet risk scoring, address profiling, counterparty mapping, token and contract risk, DeFi market data, Hyperliquid activity, and Polymarket positions.
 
 ## Install
 
-### Claude Code (plugin — recommended)
+### Claude Code plugin (recommended)
 
 Registers the Nikiwa MCP server and the setup skill in one step:
 
@@ -31,13 +31,13 @@ Per-client setup instructions (Claude.ai, ChatGPT, Cursor, VS Code, Codex, Gemin
 
 | Path | Purpose |
 | --- | --- |
-| `.claude-plugin/plugin.json` | Claude Code plugin manifest — registers the MCP server (`https://pro-api.nikiwa.com/mcp`) |
+| `.claude-plugin/plugin.json` | Claude Code plugin manifest; registers the MCP server (`https://pro-api.nikiwa.com/mcp`) |
 | `.claude-plugin/marketplace.json` | Marketplace manifest for `/plugin marketplace add` |
 | `skills/nikiwa-setup/SKILL.md` | Agent skill: guided install, authentication, and verification of the Nikiwa MCP server |
 
 ## Requirements
 
-A Nikiwa account with an active API subscription — sign up at [nikiwa.com](https://nikiwa.com). Authentication is OAuth (sign in once) or a Bearer [API key](https://docs.nikiwa.com/mcp/api-keys) for headless agents.
+A Nikiwa account with an active API subscription. Sign up at [nikiwa.com](https://nikiwa.com). Authentication is OAuth (sign in once) or a Bearer [API key](https://docs.nikiwa.com/mcp/api-keys) for headless agents.
 
 ## Documentation
 

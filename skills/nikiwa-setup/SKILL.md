@@ -32,34 +32,34 @@ Hyperliquid activity, and Polymarket positions.
 
 ## Prerequisites
 
-- A Nikiwa account with an active API subscription — sign up or upgrade
+- A Nikiwa account with an active API subscription. Sign up or upgrade
   at https://nikiwa.com
 
-## Step 1 — Identify the client and auth method
+## Step 1: Identify the client and auth method
 
 First determine which MCP client the user wants to connect. If you are
 running inside one (e.g. you are Claude Code), default to configuring
 yourself unless the user says otherwise. If it's unclear, ask.
 
 **Check for an existing install first.** If a `nikiwa` MCP server is
-already configured — for example, this skill arrived via the `nikiwa`
-Claude Code plugin, which registers the server itself — do not add it
+already configured (for example, this skill arrived via the `nikiwa`
+Claude Code plugin, which registers the server itself), do not add it
 again. Skip straight to Step 3 (authenticate) or Step 4 (verify).
 
 Then pick the auth method:
 
-- **OAuth (recommended)** — for interactive clients with a browser
+- **OAuth (recommended)**: for interactive clients with a browser
   (Claude, ChatGPT, Cursor, Windsurf, VS Code, Codex, Gemini CLI).
   The user signs in once; no key to copy, tokens refresh automatically.
-- **API key** — for headless or self-hosted agents (servers, bots,
+- **API key**: for headless or self-hosted agents (servers, bots,
   scripts) where a browser consent flow is not available. The user
   creates a key at nikiwa.com (profile → **MCP Keys**; keys start with
   `nkw_live_`) and it is sent as `Authorization: Bearer <key>`.
 
-## Step 2 — Add the server
+## Step 2: Add the server
 
 Use the section matching the client. When editing a JSON config file,
-read it first and merge the `nikiwa` entry into the existing structure —
+read it first and merge the `nikiwa` entry into the existing structure;
 never overwrite other servers.
 
 ### Claude Code
@@ -115,7 +115,7 @@ Cursor Settings → MCP to run the OAuth flow.
 
 ### Windsurf
 
-Add to `~/.codeium/windsurf/mcp_config.json` — note Windsurf uses
+Add to `~/.codeium/windsurf/mcp_config.json`. Note that Windsurf uses
 `serverUrl`, not `url`:
 
 ```json
@@ -211,7 +211,7 @@ openclaw mcp set nikiwa '{"url":"https://pro-api.nikiwa.com/mcp","transport":"st
 ```
 
 OpenClaw typically runs headless on a server, so prefer an API key over
-OAuth — pass it as a header:
+OAuth. Pass it as a header:
 
 ```bash
 openclaw mcp set nikiwa '{"url":"https://pro-api.nikiwa.com/mcp","transport":"streamable-http","headers":{"Authorization":"Bearer nkw_live_YOUR_KEY"}}'
@@ -237,8 +237,8 @@ For clients that only speak stdio, bridge with `mcp-remote`
 }
 ```
 
-On a headless machine (no browser), prefer an API key — it avoids the
-OAuth browser flow entirely:
+On a headless machine (no browser), prefer an API key, which avoids
+the OAuth browser flow entirely:
 
 ```json
 {
@@ -260,13 +260,13 @@ OAuth browser flow entirely:
 If OAuth must be used headless: `mcp-remote` prints an OAuth URL on
 startup. Send that URL to the user through whatever channel is
 available. After they log in, the browser redirects to a
-`http://localhost:...` URL that won't load — have them copy that full
+`http://localhost:...` URL that won't load. Have them copy that full
 URL from the address bar and send it back, then complete the callback
 with it.
 
-## Step 3 — Authenticate (OAuth)
+## Step 3: Authenticate (OAuth)
 
-Skip this step if using an API key — the Bearer header authenticates
+Skip this step if using an API key; the Bearer header authenticates
 every request.
 
 - **Claude Code**: run `/mcp`, select the Nikiwa server, choose
@@ -276,7 +276,7 @@ every request.
 - **Cursor / Windsurf / VS Code**: click the login/authorize prompt next
   to the server in the client's MCP settings.
 - **Codex**: `codex mcp login nikiwa`.
-- **Other clients**: any client implementing MCP authorization works —
+- **Other clients**: any client implementing MCP authorization works.
   Nikiwa uses standard OAuth 2.0 authorization code with PKCE and
   supports dynamic client registration, so no pre-registration is
   needed.
@@ -286,7 +286,7 @@ is verified automatically and tokens refresh on their own. If the
 subscription lapses, the next refresh prompts renewal at
 https://nikiwa.com.
 
-## Step 4 — Verify
+## Step 4: Verify
 
 Ask the agent:
 
@@ -366,8 +366,8 @@ resources: `nikiwa://chains` (valid networks) and `nikiwa://usage`
   (60 requests/minute by default). Slow down or batch queries.
 - **Tool returns `{status: no_data}`**: often the wrong network. Most
   wallet and token tools take a `network` param
-  (eth/btc/trx/base/arbitrum/optimism/sol/avalanche/bnb/polygon) —
-  read `nikiwa://chains` for the authoritative list and double-check
+  (eth/btc/trx/base/arbitrum/optimism/sol/avalanche/bnb/polygon).
+  Read `nikiwa://chains` for the authoritative list and double-check
   the chain before assuming there is no data.
 - **Connection refused / 404**: verify the URL is exactly
   `https://pro-api.nikiwa.com/mcp` (note the `/mcp` path).
