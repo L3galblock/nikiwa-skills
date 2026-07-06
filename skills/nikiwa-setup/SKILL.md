@@ -41,6 +41,11 @@ First determine which MCP client the user wants to connect. If you are
 running inside one (e.g. you are Claude Code), default to configuring
 yourself unless the user says otherwise. If it's unclear, ask.
 
+**Check for an existing install first.** If a `nikiwa` MCP server is
+already configured — for example, this skill arrived via the `nikiwa`
+Claude Code plugin, which registers the server itself — do not add it
+again. Skip straight to Step 3 (authenticate) or Step 4 (verify).
+
 Then pick the auth method:
 
 - **OAuth (recommended)** — for interactive clients with a browser
@@ -351,6 +356,7 @@ resources: `nikiwa://chains` (valid networks) and `nikiwa://usage`
 ## More documentation
 
 - MCP overview: https://docs.nikiwa.com/mcp/overview
+- Installation (all clients): https://docs.nikiwa.com/mcp/install
 - OAuth flow details: https://docs.nikiwa.com/mcp/connect-oauth
 - API keys: https://docs.nikiwa.com/mcp/api-keys
 - Tool catalog: https://docs.nikiwa.com/mcp/tools
