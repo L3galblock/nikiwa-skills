@@ -1,0 +1,31 @@
+{
+  "name": "nikiwa",
+  "owner": {
+    "name": "Nikiwa",
+    "url": "https://nikiwa.com"
+  },
+  "metadata": {
+    "description": "Official Nikiwa plugin marketplace: blockchain forensics tools for AI agents.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "nikiwa",
+      "source": "./",
+      "description": "Nikiwa MCP server (50 blockchain forensics tools) plus a guided setup skill. Installing registers the server; authenticate with your Nikiwa account via OAuth on first use.",
+      "author": {
+        "name": "Nikiwa",
+        "url": "https://nikiwa.com"
+      },
+      "homepage": "https://docs.nikiwa.com",
+      "category": "data",
+      "keywords": [
+        "blockchain",
+        "forensics",
+        "mcp",
+        "wallet-risk",
+        "defi"
+      ]
+    }
+  ]
+}

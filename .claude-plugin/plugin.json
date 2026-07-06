@@ -1,0 +1,26 @@
+{
+  "name": "nikiwa",
+  "version": "1.0.0",
+  "description": "Nikiwa blockchain forensics for your agent: registers the Nikiwa MCP server (50 tools for wallet risk, token analysis, on-chain forensics, DeFi and prediction-market data) plus a guided setup skill.",
+  "author": {
+    "name": "Nikiwa",
+    "url": "https://nikiwa.com"
+  },
+  "homepage": "https://docs.nikiwa.com",
+  "repository": "https://github.com/L3galblock/nikiwa-skills",
+  "license": "MIT",
+  "keywords": [
+    "blockchain",
+    "forensics",
+    "mcp",
+    "wallet-risk",
+    "defi",
+    "crypto"
+  ],
+  "mcpServers": {
+    "nikiwa": {
+      "type": "http",
+      "url": "https://pro-api.nikiwa.com/mcp"
+    }
+  }
+}
