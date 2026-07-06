@@ -1,6 +1,6 @@
 {
   "name": "nikiwa",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nikiwa blockchain forensics for your agent: registers the Nikiwa MCP server (50 tools for wallet risk, token analysis, on-chain forensics, DeFi and prediction-market data) plus a guided setup skill.",
   "author": {
     "name": "Nikiwa",

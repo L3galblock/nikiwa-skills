@@ -8,9 +8,9 @@ description: >
   Supports OAuth login with a Nikiwa account or a Bearer API key for
   headless agents. Use when the user wants to set up Nikiwa MCP, connect
   to on-chain forensics data, or install blockchain investigation tools
-  in Claude, ChatGPT, Cursor, Codex, Gemini CLI, VS Code, or any other
-  MCP client.
-version: 1.0.0
+  in Claude, ChatGPT, OpenClaw, Cursor, Codex, Gemini CLI, VS Code, or
+  any other MCP client.
+version: 1.0.1
 author: nikiwa
 ---
 
@@ -201,6 +201,25 @@ Add to `opencode.json` (project) or `~/.config/opencode/opencode.json`:
   }
 }
 ```
+
+### OpenClaw
+
+Run on the host where the OpenClaw gateway runs:
+
+```bash
+openclaw mcp set nikiwa '{"url":"https://pro-api.nikiwa.com/mcp","transport":"streamable-http"}'
+```
+
+OpenClaw typically runs headless on a server, so prefer an API key over
+OAuth — pass it as a header:
+
+```bash
+openclaw mcp set nikiwa '{"url":"https://pro-api.nikiwa.com/mcp","transport":"streamable-http","headers":{"Authorization":"Bearer nkw_live_YOUR_KEY"}}'
+```
+
+Other self-hosted assistants (NanoClaw, ZeroClaw, and similar) follow
+the same pattern: native remote MCP config with an `Authorization`
+header if supported, otherwise the stdio bridge below.
 
 ### Stdio-only clients and headless agents
 
